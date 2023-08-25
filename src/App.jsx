@@ -1,7 +1,11 @@
+import Cards from "./Cards"
+
 function App() {
 
   return (
-    <div>hi</div>
+    <div>
+      <Cards />
+    </div>
   )
 }
 
