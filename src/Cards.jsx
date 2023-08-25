@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function Cards() {
   const [cardBacks, setCardBacks] = useState([]);
 
-  function changeClicked(key) {
+  function handleClick(key) {
     // make copy of the cardBacks array
     const newCardBacks = [...cardBacks];
     // find the correct card by key
@@ -48,8 +48,9 @@ export default function Cards() {
           <img
             key={back.key}
             src={back.imgAnimated}
+            alt={back.name + " Heartstone card back illustration"}
             width="250"
-            onClick={() => changeClicked(back.key)}
+            onClick={() => handleClick(back.key)}
           />
         ) : null
       )}
