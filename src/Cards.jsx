@@ -3,6 +3,18 @@ import { useEffect, useState } from "react";
 export default function Cards() {
   const [cardBacks, setCardBacks] = useState([]);
 
+  function changeClicked(key) {
+    // make copy of the cardBacks array
+    const newCardBacks = [...cardBacks];
+    // find the correct card by key
+    const card = newCardBacks.find((card) => card.key === key);
+    console.log(card.clicked);
+    // set card.clicked to true
+    card.clicked = true;
+    // setCardBacks to the copy
+    setCardBacks(newCardBacks);
+  }
+
   useEffect(() => {
     const fetchData = async () => {
       const url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cardbacks";
@@ -18,9 +30,10 @@ export default function Cards() {
       try {
         const response = await fetch(url, options);
         const data = await response.json();
-        const selection = data.sort(() => 0.5 - Math.random()).slice(0, 20);
-        selection.map((card) => ((card.key = card.cardBackId), (card.count = 0)));
-        setCardBacks(selection);
+        data.map(
+          (card) => ((card.key = card.cardBackId), (card.clicked = false))
+        );
+        setCardBacks(data);
       } catch (error) {
         console.error(error);
       }
@@ -32,7 +45,12 @@ export default function Cards() {
     <div>
       {cardBacks.map((back) =>
         back.img ? (
-          <img key={back.key} src={back.imgAnimated} width="250" />
+          <img
+            key={back.key}
+            src={back.imgAnimated}
+            width="250"
+            onClick={() => changeClicked(back.key)}
+          />
         ) : null
       )}
     </div>
