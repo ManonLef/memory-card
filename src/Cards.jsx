@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export default function Cards() {
-  const [cardBacks, setCardBacks] = useState([])
+  const [cardBacks, setCardBacks] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -17,10 +17,12 @@ export default function Cards() {
 
       try {
         const response = await fetch(url, options);
-        const result = await response.json();
-        console.log(result);
-        result.map(card => card.key = card.cardBackId)
-        setCardBacks(result)
+        const data = await response.json();
+        data.map((card) => (
+          card.key = card.cardBackId,
+          card.count = 0
+          ));
+        setCardBacks(data);
       } catch (error) {
         console.error(error);
       }
@@ -28,7 +30,11 @@ export default function Cards() {
     fetchData();
   }, []);
 
-  cardBacks.map(card => console.log(card.key))
-
-  return <div>{cardBacks[8].name}</div>;
+  return (
+    <div>
+      {cardBacks.map((back) =>
+        back.img ? <img key={back.key} src={back.img} width="250" /> : null
+      )}
+    </div>
+  );
 }
