@@ -18,11 +18,9 @@ export default function Cards() {
       try {
         const response = await fetch(url, options);
         const data = await response.json();
-        data.map((card) => (
-          card.key = card.cardBackId,
-          card.count = 0
-          ));
-        setCardBacks(data);
+        const selection = data.sort(() => 0.5 - Math.random()).slice(0, 20);
+        selection.map((card) => ((card.key = card.cardBackId), (card.count = 0)));
+        setCardBacks(selection);
       } catch (error) {
         console.error(error);
       }
@@ -33,7 +31,9 @@ export default function Cards() {
   return (
     <div>
       {cardBacks.map((back) =>
-        back.img ? <img key={back.key} src={back.img} width="250" /> : null
+        back.img ? (
+          <img key={back.key} src={back.imgAnimated} width="250" />
+        ) : null
       )}
     </div>
   );
