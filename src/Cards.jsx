@@ -29,11 +29,15 @@ export default function Cards() {
 
       try {
         const response = await fetch(url, options);
-        const data = await response.json();
-        data.map(
+        const cardsData = await response.json();
+        // filter only cards with a back image
+        const cardsWithImg = cardsData.filter((card) =>
+          Object.prototype.hasOwnProperty.call(card, "img")
+        );
+        cardsWithImg.map(
           (card) => ((card.key = card.cardBackId), (card.clicked = false))
         );
-        setCardBacks(data);
+        setCardBacks(cardsWithImg);
       } catch (error) {
         console.error(error);
       }
@@ -43,17 +47,15 @@ export default function Cards() {
 
   return (
     <div>
-      {cardBacks.map((back) =>
-        back.img ? (
-          <img
-            key={back.key}
-            src={back.imgAnimated}
-            alt={back.name + " Heartstone card back illustration"}
-            width="250"
-            onClick={() => handleClick(back.key)}
-          />
-        ) : null
-      )}
+      {cardBacks.map((back) => (
+        <img
+          key={back.key}
+          src={back.imgAnimated}
+          alt={back.name + " Heartstone card back illustration"}
+          width="250"
+          onClick={() => handleClick(back.key)}
+        />
+      ))}
     </div>
   );
 }
