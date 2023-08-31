@@ -1,22 +1,43 @@
 import { useEffect, useState } from "react";
 
-export default function Cards( {scoreUp, end} ) {
+export default function Cards({ scoreUp, end }) {
   const [cardBacks, setCardBacks] = useState([]);
+
+  function shuffle() {
+    const shuffledArray = [...cardBacks];
+    let currentIndex = shuffledArray.length,
+      randomIndex;
+
+    while (currentIndex > 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [shuffledArray[currentIndex], shuffledArray[randomIndex]] = [
+        shuffledArray[randomIndex],
+        shuffledArray[currentIndex],
+      ];
+    }
+
+    setCardBacks(shuffledArray);
+  }
 
   function handleClick(key) {
     const newCardBacks = [...cardBacks];
     const card = newCardBacks.find((card) => card.key === key);
 
     if (!card.clicked) {
-      card.clicked = true
-      setCardBacks(newCardBacks)
+      card.clicked = true;
+      console.log("clicked card: ", card.key);
+      setCardBacks(newCardBacks);
+      shuffle();
       scoreUp();
     } else {
-      end()
+      end();
     }
   }
 
   useEffect(() => {
+    console.log("fetching");
     const fetchData = async () => {
       const url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cardbacks";
       const options = {
