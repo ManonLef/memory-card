@@ -1,3 +1,10 @@
-export default function EndGame({ score }) {
-  return <div>The game has ended with a score of {score}</div>;
+import { useState } from "react";
+
+export default function EndGame({ score, highScore, setHighScore }) {
+
+  function handleHigh() {
+    if (score > highScore) setHighScore()
+  }
+  
+  return <div>game ended with {score} points</div>
 }
