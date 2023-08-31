@@ -2,18 +2,17 @@ import { useState } from "react";
 import Cards from "./Cards";
 import EndGame from "./EndGame";
 
-export default function Game() {
+export default function Game({ highScore, setHighScore }) {
   const [endGame, setEndGame] = useState(false);
   const [score, setScore] = useState(0);
-  const [highScore, setHighScore] = useState(0)
 
   function addPoint() {
     setScore(score + 1);
-    if (score + 1 > highScore) setHighScore(score + 1)
   }
 
   function gameComplete() {
     setEndGame(!endGame);
+    if (score > highScore ) setHighScore(score)
     console.log("end game");
   }
 
@@ -25,5 +24,14 @@ export default function Game() {
         <Cards scoreUp={addPoint} end={gameComplete} />
       </div>
     );
-  else return <EndGame score={score} />;
+  else
+    return (
+      <div>
+        <EndGame
+          score={score}
+          setHighScore={setHighScore}
+          highScore={highScore}
+        />
+      </div>
+    );
 }
