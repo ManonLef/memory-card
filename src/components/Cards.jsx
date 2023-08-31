@@ -32,6 +32,7 @@ export default function Cards({ scoreUp, end }) {
       shuffle();
       scoreUp();
     } else {
+      console.log("ending with clicked card: ", card.key);
       end();
     }
   }
@@ -67,9 +68,10 @@ export default function Cards({ scoreUp, end }) {
     fetchData();
   }, []);
 
+  const cardsToShow = 10;
   return (
     <div>
-      {cardBacks.map((back) => (
+      {cardBacks.slice(0, cardsToShow).map((back) => (
         <img
           key={back.key}
           src={back.imgAnimated}
