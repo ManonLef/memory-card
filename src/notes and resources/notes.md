@@ -53,5 +53,17 @@
 - Full game could be parent of score and cards. With an endgame function passed somewhere perhaps?
 - At this point I am not entirely sure about this and I will read up about passing props. I remember a guide on react.dev that might be useful.
 
+### 2023-08-31
+- I just dove in today which might have been not the best idea.
+- Added shuffle and limited card display
+- score is added and tracked
+- added an endGame
+- The Main/parent should keep track of highScore
+- if the game ends, I want a new game to render in the main/parent. Need to find a way to do this
+  - perhaps add a games played tracker. somehow have that update the key of the game component to force a new mount a.k.a. new set of cards
+- at end of game we want a button to show to start a new game in that case. so we probably need to track if it's the end of the game
+The above works with the new key, yay!
+
+
 ## Todo's
 - [x] research API to use
