@@ -44,5 +44,14 @@
 - [pexels](https://www.pexels.com/api)
 - [heartstone](https://rapidapi.com/omgvamp/api/hearthstone)
 
+### 2023-08-30 Planning
+- I need to start thinking a bit more about hierarchy now. Especially in regards to the score, game flow etc.
+- when card is clicked that wasn't clicked before, score should update. Score function should be passed down to the card I presume so the card can access said prop
+- Idea:
+  - make score component with a function to update score.
+  - pass said function to the card component so it can be used upon click.
+- Full game could be parent of score and cards. With an endgame function passed somewhere perhaps?
+- At this point I am not entirely sure about this and I will read up about passing props. I remember a guide on react.dev that might be useful.
+
 ## Todo's
 - [x] research API to use

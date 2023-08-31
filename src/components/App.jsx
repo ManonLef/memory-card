@@ -1,10 +1,10 @@
-import Cards from "./Cards"
+import Game from "./Game"
 
 function App() {
 
   return (
     <div>
-      <Cards />
+      <Game />
     </div>
   )
 }
