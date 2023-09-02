@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Card from "./Card";
 
 export default function Cards({ scoreUp, end }) {
   const [cardBacks, setCardBacks] = useState([]);
@@ -19,7 +20,7 @@ export default function Cards({ scoreUp, end }) {
       try {
         const response = await fetch(url, options);
         const cardsData = await response.json();
-        console.log(cardsData)
+        console.log(cardsData);
         // filter only cards with a back image
         const cardsWithImg = cardsData.filter((card) =>
           Object.prototype.hasOwnProperty.call(card, "img")
@@ -73,10 +74,11 @@ export default function Cards({ scoreUp, end }) {
   return (
     <div>
       {cardBacks.slice(0, cardsToShow).map((back) => (
-        <img
+        <Card
           key={back.key}
+          id={back.key}
           src={back.img}
-          alt={back.name + " Heartstone card back illustration"}
+          alt={back.name}
           width="200"
           onClick={() => handleClick(back.key)}
         />
