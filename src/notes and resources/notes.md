@@ -64,6 +64,10 @@
 - at end of game we want a button to show to start a new game in that case. so we probably need to track if it's the end of the game
 The above works with the new key, yay!
 
+### 2023-09-02
+- Felt a bit silly today when trying to add another shuffle to first render. Then trying to debug the fact it rendered twice because of strictMode while literally having just explained that to someone else earlier in the discord... It's also a topic I dove into more to get more familiar with the component lifecycles in React. 
 
 ## Todo's
 - [x] research API to use
+- [x] shuffle cards on first render as well
+- [ ] lift endgame state up for conditional rendering from parent
