@@ -28,31 +28,13 @@ export default function Cards({ scoreUp, end }) {
         cardsWithImg.map(
           (card) => ((card.key = card.cardBackId), (card.clicked = false))
         );
-        setCardBacks(cardsWithImg);
+        setCardBacks(shuffle(cardsWithImg));
       } catch (error) {
         console.error(error);
       }
     };
     fetchData();
   }, []);
-
-  function shuffle() {
-    const shuffledArray = [...cardBacks];
-    let currentIndex = shuffledArray.length,
-      randomIndex;
-
-    while (currentIndex > 0) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      [shuffledArray[currentIndex], shuffledArray[randomIndex]] = [
-        shuffledArray[randomIndex],
-        shuffledArray[currentIndex],
-      ];
-    }
-
-    setCardBacks(shuffledArray);
-  }
 
   function handleClick(key) {
     const newCardBacks = [...cardBacks];
@@ -61,8 +43,7 @@ export default function Cards({ scoreUp, end }) {
     if (!card.clicked) {
       card.clicked = true;
       console.log("clicked card: ", card.key);
-      setCardBacks(newCardBacks);
-      shuffle();
+      setCardBacks(shuffle(newCardBacks));
       scoreUp();
     } else {
       console.log("ending with clicked card: ", card.key);
@@ -85,4 +66,23 @@ export default function Cards({ scoreUp, end }) {
       ))}
     </div>
   );
+}
+
+// helper(s)
+
+function shuffle(array) {
+  let currentIndex = array.length,
+    randomIndex;
+
+  while (currentIndex > 0) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex],
+      array[currentIndex],
+    ];
+  }
+
+  return array
 }
