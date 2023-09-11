@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Cards from "./Cards";
 import EndGame from "./EndGame";
+import NewGameButton from "./NewGameButton";
 
 export default function Game({ highScore, setHighScore, startNewGame }) {
   const [endGame, setEndGame] = useState(false);
@@ -31,8 +32,8 @@ export default function Game({ highScore, setHighScore, startNewGame }) {
           score={score}
           setHighScore={setHighScore}
           highScore={highScore}
-          startNewGame={startNewGame}
         />
+        <NewGameButton startNewGame={startNewGame} />
       </div>
     );
 }
