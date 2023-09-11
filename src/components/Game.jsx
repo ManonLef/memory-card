@@ -19,9 +19,11 @@ export default function Game({ highScore, setHighScore, startNewGame }) {
 
   if (!endGame)
     return (
-      <div>
-        <div>score: {score}</div>
-        <div>highScore: {highScore}</div>
+      <div className="text-xl font-bold">
+        <div className="flex-col p-4">
+          <div>score: {score}</div>
+          <div>highScore: {highScore}</div>
+        </div>
         <Cards scoreUp={addPoint} end={gameComplete} />
       </div>
     );

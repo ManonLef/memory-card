@@ -10,7 +10,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="text-white uppercase tracking-widest bg-gradient-to-r from-fuchsia-500 to-pink-500">
       <Game
         key={newGame}
         highScore={highScore}

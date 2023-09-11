@@ -53,7 +53,7 @@ export default function Cards({ scoreUp, end }) {
 
   const cardsToShow = 10;
   return (
-    <div className="flex gap-4 flex-wrap justify-center">
+    <div className="font-normal flex gap-4 flex-wrap justify-center m-4">
       {cardBacks.slice(0, cardsToShow).map((back) => (
         <Card
           key={back.key}
