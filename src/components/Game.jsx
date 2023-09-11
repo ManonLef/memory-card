@@ -31,8 +31,8 @@ export default function Game({ highScore, setHighScore, startNewGame }) {
           score={score}
           setHighScore={setHighScore}
           highScore={highScore}
+          startNewGame={startNewGame}
         />
-        <button onClick={startNewGame} class="bg-red-300 hover:bg-red-400 text-white font-bold py-2 px-4 rounded">new game?</button>
       </div>
     );
 }
