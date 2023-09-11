@@ -3,16 +3,20 @@ import Game from "./Game";
 
 function App() {
   const [highScore, setHighScore] = useState(0);
-  const [newGame, setNewGame] = useState(1)
+  const [newGame, setNewGame] = useState(1);
 
   function startNewGame() {
-    setNewGame(newGame + 1)
+    setNewGame(newGame + 1);
   }
 
   return (
     <div>
-      <Game key={newGame} highScore={highScore} setHighScore={setHighScore} />
-      <button onClick={startNewGame}>new game?</button>
+      <Game
+        key={newGame}
+        highScore={highScore}
+        setHighScore={setHighScore}
+        startNewGame={startNewGame}
+      />
     </div>
   );
 }

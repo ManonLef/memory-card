@@ -67,7 +67,11 @@ The above works with the new key, yay!
 ### 2023-09-02
 - Felt a bit silly today when trying to add another shuffle to first render. Then trying to debug the fact it rendered twice because of strictMode while literally having just explained that to someone else earlier in the discord... It's also a topic I dove into more to get more familiar with the component lifecycles in React. 
 
+### 2023-09-11
+- Forced break due to covid in our home...
+
 ## Todo's
 - [x] research API to use
 - [x] shuffle cards on first render as well
 - [ ] lift endgame state up for conditional rendering from parent
+- [ ] add functionality to wait before image is loaded before displaying it, or optimizing it some other way.

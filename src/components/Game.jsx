@@ -2,7 +2,7 @@ import { useState } from "react";
 import Cards from "./Cards";
 import EndGame from "./EndGame";
 
-export default function Game({ highScore, setHighScore }) {
+export default function Game({ highScore, setHighScore, startNewGame }) {
   const [endGame, setEndGame] = useState(false);
   const [score, setScore] = useState(0);
 
@@ -12,7 +12,7 @@ export default function Game({ highScore, setHighScore }) {
 
   function gameComplete() {
     setEndGame(!endGame);
-    if (score > highScore ) setHighScore(score)
+    if (score > highScore) setHighScore(score);
     console.log("end game");
   }
 
@@ -32,6 +32,7 @@ export default function Game({ highScore, setHighScore }) {
           setHighScore={setHighScore}
           highScore={highScore}
         />
+        <button onClick={startNewGame} class="bg-red-300 hover:bg-red-400 text-white font-bold py-2 px-4 rounded">new game?</button>
       </div>
     );
 }
