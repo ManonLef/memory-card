@@ -1,7 +1,5 @@
 export default function EndGame({ score, highScore, setHighScore }) {
-  function handleHigh() {
-    if (score > highScore) setHighScore();
-  }
-
-  return <div>game ended with {score} points </div>;
+  return (
+    <div className="text-xl font-bold p-4">game ended with {score} points </div>
+  );
 }
