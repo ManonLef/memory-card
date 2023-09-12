@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 export default function Card({ id, src, onClick, alt }) {
   return (
-    <div className="text-sm p-2 flex-col text-center bg-white bg-opacity-25 hover:bg-opacity-50 hover:bg-gray-100 rounded-lg">
+    <div className="text-sm py-1 flex-col text-center bg-white bg-opacity-25 hover:bg-opacity-50 hover:bg-gray-100 rounded-lg">
       <img
         className="p-1 mx-auto"
         key={id}
@@ -12,7 +12,6 @@ export default function Card({ id, src, onClick, alt }) {
         width="150"
         loading="eager"
       />
-      <div>{alt}</div>
     </div>
   );
 }
