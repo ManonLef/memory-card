@@ -2,6 +2,7 @@ import { useState } from "react";
 import Cards from "./Cards";
 import EndGame from "./EndGame";
 import NewGameButton from "./NewGameButton";
+import PropTypes from 'prop-types';
 
 export default function Game({ highScore, setHighScore, startNewGame }) {
   const [endGame, setEndGame] = useState(false);
@@ -38,4 +39,10 @@ export default function Game({ highScore, setHighScore, startNewGame }) {
         <NewGameButton startNewGame={startNewGame} />
       </div>
     );
+}
+
+Game.propTypes = {
+  highScore: PropTypes.number,
+  setHighScore: PropTypes.func,
+  startNewGame: PropTypes.func,
 }
