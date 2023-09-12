@@ -74,6 +74,7 @@ The above works with the new key, yay!
 ### 2023-09-12
 - Looked into image resizing more but seems elaborate with CloudFront and Lambda. 
 - each image is now roughly 100kb and that sure is undesirable.
+- intend to go through the code once more before shipping it for it seems the objective is complete for a while already. It's not perfect but it seems this was mostly an intro to hooks and state lifting, which is something I feel like I'm grasping enough now to move on. 
 
 ## Todo's
 - [x] research API to use
