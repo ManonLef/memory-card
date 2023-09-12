@@ -24,6 +24,7 @@ export default function Game({ highScore, setHighScore, startNewGame }) {
         <div className="flex-col p-4">
           <div>score: {score}</div>
           <div>highScore: {highScore}</div>
+          <a className="text-xs underline text-indigo-100 hover:text-indigo-200" href="https://github.com/ManonLef/memory-card">Credits and repo - Manon Lef</a>
         </div>
         <Cards scoreUp={addPoint} end={gameComplete} />
       </div>
