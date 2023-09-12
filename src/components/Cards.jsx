@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import PropTypes from 'prop-types';
 
 export default function Cards({ scoreUp, end }) {
   const [cardBacks, setCardBacks] = useState([]);
@@ -85,4 +86,9 @@ function shuffle(array) {
   }
 
   return array
+}
+
+Cards.propTypes = {
+  scoreUp: PropTypes.func,
+  end: PropTypes.func,
 }
