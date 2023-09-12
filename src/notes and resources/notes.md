@@ -69,9 +69,13 @@ The above works with the new key, yay!
 
 ### 2023-09-11
 - Forced break due to covid in our home...
+- finished most of the styling
+
+### 2023-09-12
+- Looked into image resizing more but seems elaborate with CloudFront and Lambda. 
+- each image is now roughly 100kb and that sure is undesirable.
 
 ## Todo's
 - [x] research API to use
 - [x] shuffle cards on first render as well
-- [ ] lift endgame state up for conditional rendering from parent
 - [ ] add functionality to wait before image is loaded before displaying it, or optimizing it some other way.
