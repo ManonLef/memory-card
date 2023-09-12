@@ -6,7 +6,6 @@ export default function Cards({ scoreUp, end }) {
   const [cardBacks, setCardBacks] = useState([]);
 
   useEffect(() => {
-    console.log("fetching");
     const fetchData = async () => {
       const url = "https://omgvamp-hearthstone-v1.p.rapidapi.com/cardbacks";
       const options = {
@@ -21,7 +20,6 @@ export default function Cards({ scoreUp, end }) {
       try {
         const response = await fetch(url, options);
         const cardsData = await response.json();
-        console.log(cardsData);
         // filter only cards with a back image
         const cardsWithImg = cardsData.filter((card) =>
           Object.prototype.hasOwnProperty.call(card, "img")
@@ -43,11 +41,9 @@ export default function Cards({ scoreUp, end }) {
 
     if (!card.clicked) {
       card.clicked = true;
-      console.log("clicked card: ", card.key);
       setCardBacks(shuffle(newCardBacks));
       scoreUp();
     } else {
-      console.log("ending with clicked card: ", card.key);
       end();
     }
   }

@@ -15,7 +15,6 @@ export default function Game({ highScore, setHighScore, startNewGame }) {
   function gameComplete() {
     setEndGame(!endGame);
     if (score > highScore) setHighScore(score);
-    console.log("end game");
   }
 
   if (!endGame)
