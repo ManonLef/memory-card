@@ -35,7 +35,7 @@ The main goal of this project is to implement the concepts learned so far by usi
 ## Things to implement someday/maybe
 - [ ] local storage of highscore
 - [ ] image resizing (see notes) before load
-- [ ] remove text for more consistent card sizes
+- [x] remove text for more consistent card sizes
 - [ ] make components more reusable
 
 ## Disclaimers
