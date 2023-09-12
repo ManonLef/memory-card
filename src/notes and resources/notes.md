@@ -80,4 +80,5 @@ The above works with the new key, yay!
 - [x] research API to use
 - [x] shuffle cards on first render as well
 - [ ] add functionality to wait before image is loaded before displaying it, or optimizing it some other way.
+  - tip from Mal ReactiFlux: resize locally, image resizing tool eg sharp, write a script to resize all the files in a folder or something
 - [ ] make button standalone component with function passed as prop (which could also be something else not starting new game)
